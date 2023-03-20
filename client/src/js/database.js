@@ -35,9 +35,13 @@ export const putDb = async (content) => {
 // Added logic that gets all the content from the database
 export const getDb = async () => {
 console.log("GET from database");
+//creates connection to db
 const contactDb = await openDB('jate', 1);
+//creates new transaction and specifies database and privileges
 const trans = contactDb.transaction('jate', 'readonly');
+//designate the desired objectStore to open
 const store = trans.objectStore('jate');
+//logic to pass get all stored content
 const request = store.getAll();
 
 const result = await request;
