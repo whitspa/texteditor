@@ -42,7 +42,7 @@ const trans = contactDb.transaction('jate', 'readonly');
 //designate the desired objectStore to open
 const store = trans.objectStore('jate');
 //logic to pass get all stored content
-const request = store.getAll();
+const request = store.get(1);
 
 const result = await request;
 console.log('result.value', result);

@@ -28,16 +28,18 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 //Implemented asset caching in the registerRoute function
 registerRoute(
-  ({request}) => ['style', 'script', 'worker'].includes(request.destination),
-  new StaleWhileRevaalidate({cacheName:'asset-cache',
-plugins: [
-  new CacheableResponsePlugin({
-    statuses: [0, 200],
-  }),
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  new StaleWhileRevaalidate({
+    cacheName: 'asset-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
 
-  new ExpirationPlugin({
-    maxEntries: 60,
-    maxAgeSeconds: 30 * 24 * 60 * 60,
+      new ExpirationPlugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+      })
+    ]
   })
-]})
 );
