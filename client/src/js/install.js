@@ -7,7 +7,7 @@ console.log('target')
 console.log("event" + event)
 event.preventDefault();
 //Syntax for triggered events
-window.deferredPropmt = event;
+window.deferredPrompt = event;
 //Code line below removes the hidden class from the button
 butInstall.classList.toggle('hidden', false);
 });
@@ -16,7 +16,7 @@ butInstall.classList.toggle('hidden', false);
 
 // Logic to add click event handler on the `butInstall` element
 butInstall.addEventListener('click', async () => {
-const promptEvent = window.deferredPropmpt;
+const promptEvent = window.deferredPrompt;
 if (!promptEvent) {
     return;
 }
